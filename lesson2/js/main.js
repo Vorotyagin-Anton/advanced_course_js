@@ -27,6 +27,7 @@ class ProductList {
     this.render();
     console.log(this.goods);
     console.log(this.allProducts);
+    console.log(this._calcSum());
   }
 
   _fetchProducts() {
@@ -47,9 +48,52 @@ class ProductList {
       block.insertAdjacentHTML('beforeend', productObject.render());
     }
   }
+
+  _calcSum() {
+    return this.allProducts.reduce((total, product) => total + product.price, 0)
+  }
 }
 
 new ProductList();
+
+class BasketItem {
+  constructor(product, img='https://placehold.it/200x150') {
+    this.title = product.title;
+    this.price = product.price;
+    this.id = product.id;
+    this.img = img;
+    this.quantity = 1;
+  }
+
+_deleteItem() {
+  // Delete an item from the basket
+}
+
+_setAmount() {
+  // Set new quantity, which was chosen by customer
+}
+
+}
+
+class Basket {
+  constructor(container = '.basket') {
+    this.container = container;
+    this.render();
+  }
+
+render() {
+  // Fill in the basket
+}
+
+_addItem() {
+  // Add new item to basket
+}
+
+_calcSum() {
+  // Calculate the amount of goods 
+}
+
+}
 
 // const products = [
 //   {id: 1, title: 'Notebook', price: 1000},
